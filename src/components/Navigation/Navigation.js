@@ -1,9 +1,11 @@
 import { AppBar } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import { useSelector } from "react-redux"
+import {  useSelector } from "react-redux"
 import './Navigation.css'
 
-const { Link } = require("react-router-dom")
+import { Link } from "react-router-dom"
+import LoginNav from "./LoginNav"
+import LogoutNav from "./LogoutNav"
 
 const useStyle = makeStyles((theme) => ({
     AppBar : {
@@ -21,63 +23,6 @@ const useStyle = makeStyles((theme) => ({
     }
 }))
 
-const LoginNav = () => {
-    const classes = useStyle()
-    return (
-        <>
-            <div className="customers">
-                <Link 
-                    to="/customers" 
-                    className={ classes.link }
-                    >Customers</Link>
-            </div>
-            <div className="products">
-                <Link 
-                    to="/products" 
-                    className={ classes.link }
-                    >Products</Link>
-            </div>
-            <div className="account">
-                <Link 
-                    to="/account" 
-                    className={ classes.link }
-                    >Account</Link>
-            </div>
-            <div className="bills">
-                <Link 
-                    to="/bills" 
-                    className={ classes.link }
-                    >Bills</Link>
-            </div>
-            <div className="logout">
-                <Link 
-                    to="/logout" 
-                    className={ classes.link }
-                    >Logout</Link>
-            </div>
-        </>
-    )
-}
-
-const LogoutNav = () => {
-    const classes = useStyle()
-    return (
-        <>
-            <div className="about">
-                <Link 
-                    to="/about" 
-                    className={ classes.link }
-                >About</Link>
-            </div>
-            <div className="login">
-                <Link 
-                    to="/login" 
-                    className={ classes.link }
-                >Login</Link>
-            </div>
-        </>
-    )
-}
 
 const Navigation = (props) => {
 
@@ -99,7 +44,7 @@ const Navigation = (props) => {
                         </div>
                         <div className="right__navigation">
                             {
-                                isLoggedIn ? <LoginNav/> : <LogoutNav/>
+                                isLoggedIn ? <LoginNav classes={ classes }/> : <LogoutNav classes={ classes }/>
                             }
                         </div>
                     </div>

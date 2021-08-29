@@ -1,4 +1,54 @@
-.login__page{
-    margin-top: 300px;
+ .login__form{
+    margin-top: 130px;
     text-align: center;
+    height: 430px;
+    background-image: url(../../utils/images/login.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+.login__form > h2 {
+    padding-top: 70px;
+    font-size: 40px;
+}
+
+.check {
+    margin-bottom: 15px;
+}
+
+
+@media only screen and (max-width : 400px) {
+    .login__form{
+        margin-top: 75px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        height: 600px;
+        background-attachment: fixed;
+    }
+    .check {
+        margin-bottom: 10px;
+    }
+    .login__form > h2 {
+        padding-top: 120px;
+        font-size: 40px;
+    }
+}
+
+@media only screen and (min-width : 401px) and (max-width : 700px) {
+    .login__form{
+        margin-top: 70px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        height: 800px;
+    }
+    .check {
+        margin-bottom: 20px;
+    }
+    .login__form > h2 {
+        padding-top: 180px;
+        font-size: 40px;
+    }
 }

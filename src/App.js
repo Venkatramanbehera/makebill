@@ -13,7 +13,7 @@ import Bills from './components/Bills/Bills'
 import Customers from './components/Customers/Customers'
 import Products from './components/Products/Products'
 import SignIn from './components/SignIn/SignIn'
-import Default from './components/Default/Default'
+// import Default from './components/Default/Default'
 
 const App = (props) => {
   return (
@@ -29,7 +29,7 @@ const App = (props) => {
       <Route path="/account" component={ Account } exact={true} />
       <Route path="/bills" component={ Bills } exact={true} />
       <Route path="/signin" component={ SignIn } exact={true} />
-      <Route  component={ Default } exact={true} />
+      {/* <Route  component={ Default } exact={true} /> */}
       
     </div>
   )
