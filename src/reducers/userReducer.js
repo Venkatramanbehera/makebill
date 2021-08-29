@@ -1,4 +1,4 @@
-const initialUserState = {}
+const initialUserState = { isLoggedIn:false }
 
 const userReducers = (state = initialUserState, action) => {
     switch(action.type){

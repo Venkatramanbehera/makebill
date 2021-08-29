@@ -1,0 +1,88 @@
+.navigation{
+    display: flex;
+    justify-content: space-between;
+}
+
+ .left__navigation{
+    padding-top: 10px;
+    padding-left: 20px ;
+    flex: 8;
+}
+
+.left__navigation :hover {
+    color: tan;
+}
+
+.right__navigation{
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    flex: 2;
+}
+
+.right__navigation > div :hover{
+    color: rgb(238, 76, 230);
+}
+
+@media only screen and (max-width : 400px) {
+    .navigation{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .left__navigation{
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+    
+    .left__navigation :hover {
+        color: tan;
+    }
+    
+    .right__navigation{
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .right__navigation > div :hover{
+        color: rgb(238, 76, 230);
+    }
+    
+}
+
+
+@media only screen and (min-width : 401px) and (max-width : 750px) {
+    .navigation{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .left__navigation{
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .right__navigation{
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+        flex-direction: column;
+    }
+    
+    .left__navigation :hover {
+        color: tan;
+    }
+    
+    
+    .right__navigation > div :hover{
+        color: rgb(238, 76, 230);
+    }
+}
