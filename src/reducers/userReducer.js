@@ -1,6 +1,7 @@
 const initialUserState = { 
                             isLoggedIn:false,
-                            errors : ''
+                            errors : '',
+                            user : {}
                          }
 
 const userReducers = (state = initialUserState, action) => {
@@ -15,6 +16,12 @@ const userReducers = (state = initialUserState, action) => {
             return {
                 ...state,
                 errors : action.payload
+            }
+        }
+        case 'USER_INFORMATION' : {
+            return {
+                ...state,
+                user : {...action.payload}
             }
         }
         default :

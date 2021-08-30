@@ -5,7 +5,7 @@ import App from './App'
 import { BrowserRouter}  from 'react-router-dom'
 import { Provider } from 'react-redux'
 import configureStore from './store/configureStore';
-import { isLogin } from './actions/userAction';
+import { asyncUserInformation, isLogin } from './actions/userAction';
 
 const store = configureStore()
 
@@ -17,6 +17,7 @@ store.subscribe(() => {
 
 if(localStorage.getItem('token')){
     store.dispatch(isLogin(true))
+    store.dispatch(asyncUserInformation())
 }
 
 ReactDOM.render(

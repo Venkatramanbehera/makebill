@@ -33,3 +33,27 @@ export const isLogin = (bool) => {
         payload : bool
     }
 }
+
+export const asyncUserInformation = () => {
+    return (dispatch) => {
+        axios.get('http://dct-billing-app.herokuapp.com/api/users/account',{
+            headers : {
+                'Authorization' : 'Bearer ' + localStorage.getItem('token')
+            }
+        })
+        .then((response) => {
+            const data = response.data
+            dispatch(userInformation(data))
+        })
+        .catch((err) => {
+            console.log(err.message);
+        })
+    }
+}
+
+export const userInformation = (user) => {
+    return {
+        type : 'USER_INFORMATION',
+        payload : user
+    }
+}
