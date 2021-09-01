@@ -5,8 +5,8 @@ import ProductForm from './ProductForm'
 import ProductTable from './ProductTable'
 
 import { Button, Typography } from '@material-ui/core'
+import AddBoxIcon from '@material-ui/icons/AddBox';
 import './Products.css'
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
 
 const Products = () => {
@@ -40,7 +40,7 @@ const Products = () => {
                 <div className="addCustomer__Btn">
 
                     <Button variant="outlined" color="secondary" onClick={ handleToggle }>
-                        <PersonAddIcon/>
+                        <AddBoxIcon/>
                     </Button>
                 </div>
 

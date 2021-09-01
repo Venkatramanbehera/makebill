@@ -1,4 +1,6 @@
 import axios from "axios"
+import { asyncGetCustomers } from "./customersAction"
+import { asyncGetProducts } from "./productsAction"
 
 export const asyncLogin = (formData,redirectToProduct) => {
     return (dispatch) => {
@@ -12,6 +14,9 @@ export const asyncLogin = (formData,redirectToProduct) => {
                     localStorage.setItem('token',data.token)
                     dispatch(isLogin(true))
                     dispatch(isLoginError(''))
+                    dispatch(asyncUserInformation())
+                    dispatch(asyncGetCustomers())
+                    dispatch(asyncGetProducts())
                 }
             } )
             .catch( (err) => {

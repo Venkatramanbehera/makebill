@@ -51,8 +51,8 @@ const Login = (props) => {
 
     const formik = useFormik({
         initialValues: {
-          email: '',
-          password: '',
+          email: 'venkat@gmail.com',
+          password: 'venkat@gmail.com',
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
@@ -94,6 +94,7 @@ const Login = (props) => {
                         id="password"
                         name="password"
                         label="Password"
+                        type="password"
                         className={ classes.textField }
                         placeholder="Enter Your Password"
                         margin="normal"
