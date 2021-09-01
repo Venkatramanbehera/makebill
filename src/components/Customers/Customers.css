@@ -1,4 +1,85 @@
 .customers__page{
-    margin-top: 300px;
-    text-align: center;
+    margin-top: 100px;
+    height: auto;
+    background-color: thistle;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding-top: 30px;
+}
+.title{
+    /* padding-top: 10px; */
+}
+.addCustomer__Btn{
+    /* padding-top: 10px; */
+}
+
+.content{
+    display: flex;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: auto;
+}
+
+.customer__table{
+    width: auto;
+    margin-bottom: 20px;
+}
+
+.add__customer{
+    width: auto;
+}
+
+@media only screen and  (max-width:1138px) {
+    .customers__page{
+        margin-top: 100px;
+        height: auto;
+        background-color: thistle;
+    }
+    .content {
+        flex-direction: column;
+    }
+    .add__customer{
+        margin-top: 40px;
+        position: relative;
+        top: -430px;
+        left: 380px;
+    }
+}
+
+@media only screen and (min-width:400px) and (max-width:750px){
+    .customers__page{
+        margin-top: 280px;
+        width: auto;
+    }
+    .add__customer{
+        /* margin-top: 20px; */
+        margin:auto; 
+        margin-top: 20px;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+}
+
+
+@media only screen and  (max-width:400px){
+    .customers__page{
+        margin-top: 280px;
+        width: auto;
+    }
+    .add__customer{
+        /* margin-top: 20px; */
+        margin:auto; 
+        margin-top: 20px;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
 }
