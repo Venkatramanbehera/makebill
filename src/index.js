@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import configureStore from './store/configureStore';
 import { asyncUserInformation, isLogin } from './actions/userAction';
 import { asyncGetCustomers } from './actions/customersAction';
+import { asyncGetProducts } from './actions/productsAction';
 
 const store = configureStore()
 
@@ -20,6 +21,7 @@ if(localStorage.getItem('token')){
     store.dispatch(isLogin(true))
     store.dispatch(asyncUserInformation())
     store.dispatch(asyncGetCustomers())
+    store.dispatch(asyncGetProducts())
 }
 
 ReactDOM.render(

@@ -13,12 +13,6 @@
     margin: 20px;
     padding-top: 30px;
 }
-.title{
-    /* padding-top: 10px; */
-}
-.addCustomer__Btn{
-    /* padding-top: 10px; */
-}
 
 .content{
     display: flex;
@@ -42,14 +36,18 @@
         height: auto;
         background-color: thistle;
     }
+    .customer__table{
+        width: auto;
+    }
     .content {
         flex-direction: column;
     }
     .add__customer{
-        margin-top: 40px;
+        margin:auto; 
+        margin-top: 20px;
         position: relative;
-        top: -430px;
-        left: 380px;
+        top: 0;
+        left: 00;
     }
 }
 
@@ -58,6 +56,11 @@
         margin-top: 280px;
         width: auto;
     }
+
+    .customer__table{
+        width: auto;
+    }
+    
     .add__customer{
         /* margin-top: 20px; */
         margin:auto; 

@@ -3,52 +3,47 @@ import { Button, Card, CardActions, CardContent, TextField, Typography, makeStyl
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { asyncAddCustomer, asyncEditCustomer } from '../../actions/customersAction';
+import { asyncAddProduct, asyncEditProduct } from '../../actions/productsAction';
 
 
 const useStyles = makeStyles((theme) => ({
     card: {
-        height: 450,
-        marginLeft: 20,
-        maxWidth:250,
-        marginBottom:20
-      },
-      typography:{
-          margin:20,
-          fontSize:20,
-          color:'Red'
-      },
-      button:{
-          marginLeft : 25,
-          marginTop : 45
-      },
-      textField:{
-          marginBottom : 0,
-          width : 'auto',
-          marginLeft : 30,
-          marginRight : 30,
-          marginTop : 15
-      }
+      height: 450,
+      marginLeft: 20,
+      maxWidth:300,
+      marginBottom:20
+    },
+    typography:{
+        margin:20,
+        fontSize:20,
+        color:'Red'
+    },
+    button:{
+        marginLeft : 35,
+        marginTop : 45
+    },
+    textField:{
+        marginBottom : 10,
+        width : 'auto',
+        marginLeft : 30,
+        marginRight : 30,
+        marginTop : 20
+    }
   }));
   
 
 const validationSchema = yup.object({
-    email: yup
-      .string('Enter your email')
-      .email('Enter a valid email')
-      .required('Email is required'),
     name: yup
-      .string('Enter your name')
+      .string('Enter Product name')
       .required('Name is required'),
-    mobile: yup
-        .string('Enter your mobile')
-        .required('Mobile number is required')
-        .min(10,'min 10 digit required')
+    price: yup
+        .string('Enter Product price')
+        .required('Product price is required')
   });
 
-const CustomerForm = ({editData,handleToggleFalse}) => {
+const ProductForm = ({editData,handleToggleFalse}) => {
     
-    const { _id,name,email,mobile } = editData ? editData : {}
+    const { _id,name,price } = editData ? editData : {}
 
     const classes = useStyles()
 
@@ -60,16 +55,15 @@ const CustomerForm = ({editData,handleToggleFalse}) => {
 
     const formik = useFormik({
         initialValues: {
-          email: email ? email : '',
           name: name ? name : '',
-          mobile:  mobile ? mobile : ''
+          price:  price ? price : ''
         },
         validationSchema: validationSchema,
         onSubmit: (values,{ resetForm }) => {
             if(_id){
-                dispatch(asyncEditCustomer(_id,values,resetForm,handleToggle))
+                dispatch(asyncEditProduct(_id,values,resetForm,handleToggle))
             }else{
-                dispatch(asyncAddCustomer(values,resetForm))
+                dispatch(asyncAddProduct(values,resetForm))
             }
         },
       });
@@ -81,7 +75,7 @@ const CustomerForm = ({editData,handleToggleFalse}) => {
                 <form onSubmit={ formik.handleSubmit }>
                     <CardContent>
                         <Typography  color="textSecondary" gutterBottom className={ classes.typography }>
-                            { _id ? "Update Customer" : "Add Customer" } 
+                            { _id ? "Update Product" : "Add Product" } 
                         </Typography>
                         <TextField 
                             id="name" 
@@ -95,28 +89,16 @@ const CustomerForm = ({editData,handleToggleFalse}) => {
                             helperText={formik.touched.name && formik.errors.name} />
                             <br />
                         <TextField 
-                            id="email"
-                            name="email" 
-                            label="Email" 
-                            variant="outlined" 
-                            type="email"
-                            className={ classes.textField }
-                            value={ formik.values.email}
-                            onChange={formik.handleChange}
-                            error={formik.touched.email && Boolean(formik.errors.email)}
-                            helperText={formik.touched.email && formik.errors.email}/>
-                            <br />
-                        <TextField 
-                            id="mobile" 
-                            name="mobile"
-                            label="Mobile" 
+                            id="price" 
+                            name="price"
+                            label="Price" 
                             variant="outlined" 
                             type="number"
                             className={ classes.textField }
-                            value={ formik.values.mobile}
+                            value={ formik.values.price}
                             onChange={formik.handleChange}
-                            error={formik.touched.mobile && Boolean(formik.errors.mobile)}
-                            helperText={formik.touched.mobile && formik.errors.mobile}/>
+                            error={formik.touched.price && Boolean(formik.errors.price)}
+                            helperText={formik.touched.price && formik.errors.price}/>
 
                     </CardContent>
                     <CardActions>
@@ -143,4 +125,4 @@ const CustomerForm = ({editData,handleToggleFalse}) => {
     )
 }
 
-export default CustomerForm
+export default ProductForm

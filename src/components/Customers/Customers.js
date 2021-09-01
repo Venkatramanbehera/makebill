@@ -1,10 +1,11 @@
-import { Button, Typography } from '@material-ui/core'
 import React,{ useState } from 'react'
 import { useSelector } from 'react-redux'
+
 import CustomerForm from './CustomerForm'
+import CustomerTable from './CustomerTable'
 
 import './Customers.css'
-import CustomerTable from './CustomerTable'
+import { Button, Typography } from '@material-ui/core'
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
 const Customers = (props) => {

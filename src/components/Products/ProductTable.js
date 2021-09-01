@@ -13,10 +13,10 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 
 import { asyncRemoveCustomer } from '../../actions/customersAction';
-// import { asyncCustomer } from '../../actions/selectCustomerAction';
-import CustomerForm from './CustomerForm';
+import ProductForm from './ProductForm';
 
-import './CustomerTable.css'
+import './ProductTable.css'
+
 
 const useStyles1 = makeStyles((theme) => ({
   root: {
@@ -99,7 +99,7 @@ export default function CustomPaginationActionsTable({handleToggle}) {
   const [ toggle, setToggle ] = useState(false)
 
   const rows = useSelector((state) => {
-      return state.customers
+      return state.products
   })
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -134,14 +134,13 @@ export default function CustomPaginationActionsTable({handleToggle}) {
 
 
   return (
-    <div className="customer__table">
+    <div className="product__table">
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="custom pagination table">
       <TableHead>
           <TableRow>
             <TableCell align="left">Name</TableCell>
-            <TableCell align="right">Email&nbsp;</TableCell>
-            <TableCell align="right">Mobile&nbsp;</TableCell>
+            <TableCell align="right">Price&nbsp;</TableCell>
             <TableCell align="center">Action&nbsp;</TableCell>
           </TableRow>
         </TableHead>
@@ -155,12 +154,9 @@ export default function CustomPaginationActionsTable({handleToggle}) {
                 {row.name}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                {row.email}
+                {row.price}
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right">
-                {row.mobile}
-              </TableCell>
-              <TableCell style={{ width: 230 }} align="center">
+              <TableCell style={{ width: 200 }} align="center">
                 <Button onClick={ () => handleDetails(row) }><EditIcon/></Button>
                 <Button onClick={() => handleDelete(row._id) }><DeleteIcon/></Button>
               </TableCell>
@@ -193,9 +189,9 @@ export default function CustomPaginationActionsTable({handleToggle}) {
         </TableFooter>
       </Table>
     </TableContainer>
-    <div className="editCustomer__form">
+    <div className="edit__form">
       {
-        Object.keys(editData).length > 0 && toggle ? <CustomerForm 
+        Object.keys(editData).length > 0 && toggle ? <ProductForm 
           editData={ editData } 
           handleToggleFalse={ handleToggleFalse }/> : null
       }

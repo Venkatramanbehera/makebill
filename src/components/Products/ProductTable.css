@@ -1,35 +1,36 @@
-.customer__table{
+.product__table{
     width: auto;
     display: flex;
     margin: auto;
     justify-content: space-around;
+    margin-bottom: 20px;
 }
 
-.editCustomer__form{
+.edit__form{
     width: auto;
 }
 
 @media only screen and (min-width:750px) and (max-width:1138px){
-    .customer__table{
+    .product__table{
         flex-direction: column;
         width: auto;
         
     }
-    .editCustomer__form{
+    .edit__form{
         margin-top: 40px;
         justify-content: right;
         width: 100%;
-        margin-left: 210px;
+        margin-left: 70px;
     }
     
 }
 
 @media only screen and (min-width:400px) and (max-width:750px){
-    .customer__table{
+    .product__table{
         flex-direction: column;
         width: auto;
     }
-    .editCustomer__form{
+    .edit__form{
         margin: auto;
         margin-top: 20px;
         justify-content: right;
@@ -38,11 +39,11 @@
 }
 
 @media only screen and (max-width:400px) {
-    .customer__table{
+    .product__table{
         flex-direction: column;
         width: auto;
     }
-    .editCustomer__form{
+    .edit__form{
         margin: auto;
         margin-top: 20px;
         justify-content: right;
